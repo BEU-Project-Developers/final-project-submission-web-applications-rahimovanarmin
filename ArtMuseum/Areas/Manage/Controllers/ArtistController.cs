@@ -78,11 +78,7 @@ namespace ArtMuseum.Areas.Manage.Controllers
             if (id != artist.Id)
                 return NotFound();
 
-            if (!ModelState.IsValid)
-            {
-                TempData["ErrorMessage"] = "Please correct the form errors.";
-                return View(artist);
-            }
+        
 
             try
             {

@@ -85,12 +85,7 @@ public async Task<IActionResult> Create(Artwork artwork, List<int> SelectedArtSt
             if (id != artwork.Id)
                 return BadRequest();
 
-            if (!ModelState.IsValid)
-            {
-                ViewData["Artists"] = new SelectList(_context.Artist, "Id", "Name", artwork.ArtistId);
-                ViewData["ArtStyles"] = await _context.ArtStyle.ToListAsync();
-                return View(artwork);
-            }
+          
 
             try
             {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\ArtMuseum.csproj": {}
+    "C:\\Users\\ADMIN\\Desktop\\Final\\ArtMuseum (1)\\ArtMuseum\\ArtMuseum\\ArtMuseum.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\ArtMuseum.csproj": {
+    "C:\\Users\\ADMIN\\Desktop\\Final\\ArtMuseum (1)\\ArtMuseum\\ArtMuseum\\ArtMuseum.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\ArtMuseum.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\Final\\ArtMuseum (1)\\ArtMuseum\\ArtMuseum\\ArtMuseum.csproj",
         "projectName": "ArtMuseum",
-        "projectPath": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\ArtMuseum.csproj",
+        "projectPath": "C:\\Users\\ADMIN\\Desktop\\Final\\ArtMuseum (1)\\ArtMuseum\\ArtMuseum\\ArtMuseum.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\obj\\",
+        "outputPath": "C:\\Users\\ADMIN\\Desktop\\Final\\ArtMuseum (1)\\ArtMuseum\\ArtMuseum\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,7 +22,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -48,26 +48,22 @@
         "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[9.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[9.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.0, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[9.0.5, )"
             }
           },
           "imports": [
@@ -89,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

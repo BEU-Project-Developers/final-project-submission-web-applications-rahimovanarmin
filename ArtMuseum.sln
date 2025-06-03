@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+VisualStudioVersion = 17.12.35514.174 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtMuseum", "ArtMuseum\ArtMuseum.csproj", "{793CE3F9-2C87-47A7-91FE-2E8961A1635F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtMuseum", "ArtMuseum\ArtMuseum.csproj", "{20E0C71E-1293-43F9-AB24-B036FDC3C5CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{793CE3F9-2C87-47A7-91FE-2E8961A1635F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{793CE3F9-2C87-47A7-91FE-2E8961A1635F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{793CE3F9-2C87-47A7-91FE-2E8961A1635F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{793CE3F9-2C87-47A7-91FE-2E8961A1635F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20E0C71E-1293-43F9-AB24-B036FDC3C5CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20E0C71E-1293-43F9-AB24-B036FDC3C5CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20E0C71E-1293-43F9-AB24-B036FDC3C5CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20E0C71E-1293-43F9-AB24-B036FDC3C5CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5B13745E-2148-4AA4-90D9-63C87D468CCD}
 	EndGlobalSection
 EndGlobal

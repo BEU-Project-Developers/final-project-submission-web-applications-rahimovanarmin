@@ -11,7 +11,7 @@
     <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
 }
 
-<form asp-action="Edit" method="post">
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="Id" />
 
     <div class="form-group">
@@ -38,6 +38,29 @@
         <span asp-validation-for="BirthDate" class="text-danger"></span>
     </div>
 
+    <div class="form-group">
+        <label asp-for="PhotoUrl">Artist Image URL</label>
+        <input asp-for="PhotoUrl" type="url" class="form-control" id="imageUrl" />
+        <span asp-validation-for="PhotoUrl" class="text-danger"></span>
+        <small class="form-text text-muted">Enter a URL for the artist's image</small>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Image Preview</label>
+        <div class="image-preview-container">
+            @if (!string.IsNullOrEmpty(Model.PhotoUrl))
+            {
+                <img id="imagePreview" src="@Model.PhotoUrl" alt="Current Artist Image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;" />
+                <div id="noImageMessage" class="text-muted d-none">No image selected</div>
+            }
+            else
+            {
+                <img id="imagePreview" src="#" alt="Image Preview" class="img-thumbnail d-none" style="max-width: 200px; max-height: 200px;" />
+                <div id="noImageMessage" class="text-muted">No image selected</div>
+            }
+        </div>
+    </div>
+
     <button type="submit" class="btn btn-primary">Save Changes</button>
     <a asp-action="Index" asp-area="Manage" class="btn btn-secondary">Cancel</a>
 </form>
@@ -46,4 +69,38 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Image preview functionality
+            $('#imageUrl').on('input', function() {
+                var url = $(this).val();
+                if (url) {
+                    $('#imagePreview').attr('src', url).removeClass('d-none');
+                    $('#noImageMessage').addClass('d-none');
+                } else {
+                    $('#imagePreview').addClass('d-none');
+                    $('#noImageMessage').removeClass('d-none');
+                }
+            });
+
+            // Initialize preview based on existing image
+            if ($('#imageUrl').val()) {
+                $('#imagePreview').removeClass('d-none');
+                $('#noImageMessage').addClass('d-none');
+            }
+        });
+    </script>
 }
+
+<style>
+    .image-preview-container {
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed #ccc;
+        padding: 10px;
+        border-radius: 4px;
+    }
+</style>

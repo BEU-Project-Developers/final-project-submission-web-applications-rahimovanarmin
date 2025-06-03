@@ -19,26 +19,26 @@ namespace ArtMuseum
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-			builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
-			builder.Services.AddSession();
-			builder.Services.AddHttpContextAccessor();
+            builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+            builder.Services.AddSession();
+            builder.Services.AddHttpContextAccessor();
 
 
             var app = builder.Build();
 
-			// Configure the HTTP request pipeline.
-			//  if (!app.Environment.IsDevelopment())
-			//{
-			//  app.UseExceptionHandler("/Home/Error");
-			//}
+            // Configure the HTTP request pipeline.
+            //  if (!app.Environment.IsDevelopment())
+            //{
+            //  app.UseExceptionHandler("/Home/Error");
+            //}
 
-			app.UseStaticFiles();
+            app.UseStaticFiles();
 
             app.UseRouting();
 
-			app.UseSession();
+            app.UseSession();
 
-			app.UseAuthorization();
+            app.UseAuthorization();
 
             app.MapControllerRoute(
             name: "areas",
