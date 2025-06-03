@@ -3,6 +3,46 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\areas\\manage\\views\\artwork\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\areas\\manage\\views\\artwork\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\models\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\models\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\areas\\manage\\views\\artist\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\areas\\manage\\views\\artist\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\areas\\manage\\controllers\\artworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\areas\\manage\\controllers\\artworkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\areas\\manage\\views\\artwork\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\areas\\manage\\views\\artwork\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\areas\\manage\\views\\artist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\areas\\manage\\views\\artist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\models\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\models\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\views\\gallery\\artist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\views\\gallery\\artist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\areas\\manage\\views\\artwork\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\areas\\manage\\views\\artwork\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\views\\gallery\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\views\\gallery\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -15,28 +55,12 @@
       "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\controllers\\gallerycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\views\\gallery\\artist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\views\\gallery\\artist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\models\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\models\\artist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\models\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\models\\artwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\models\\artworkartstyle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\models\\artworkartstyle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\models\\artstyle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\models\\artstyle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|solutionrelative:artmuseum\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{793CE3F9-2C87-47A7-91FE-2E8961A1635F}|ArtMuseum\\ArtMuseum.csproj|c:\\users\\admin\\downloads\\artmuseummmmm\\artmuseum\\artmuseum\\models\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,7 +82,85 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Create.cshtml",
+              "RelativeDocumentMoniker": "ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Create.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Create.cshtml",
+              "RelativeToolTip": "ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Create.cshtml",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAAwPMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-03T12:46:07.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Edit.cshtml",
+              "RelativeToolTip": "ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Edit.cshtml",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAwEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-03T12:45:42.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Views\\Artist\\Create.cshtml",
+              "RelativeDocumentMoniker": "ArtMuseum\\Areas\\Manage\\Views\\Artist\\Create.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Views\\Artist\\Create.cshtml",
+              "RelativeToolTip": "ArtMuseum\\Areas\\Manage\\Views\\Artist\\Create.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-03T12:41:46.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ArtworkController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Controllers\\ArtworkController.cs",
+              "RelativeDocumentMoniker": "ArtMuseum\\Areas\\Manage\\Controllers\\ArtworkController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Controllers\\ArtworkController.cs",
+              "RelativeToolTip": "ArtMuseum\\Areas\\Manage\\Controllers\\ArtworkController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAAC0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T12:37:12.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Views\\Artist\\Index.cshtml",
+              "RelativeDocumentMoniker": "ArtMuseum\\Areas\\Manage\\Views\\Artist\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Views\\Artist\\Index.cshtml",
+              "RelativeToolTip": "ArtMuseum\\Areas\\Manage\\Views\\Artist\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-03T12:33:21.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Index.cshtml",
+              "RelativeDocumentMoniker": "ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Index.cshtml",
+              "RelativeToolTip": "ArtMuseum\\Areas\\Manage\\Views\\Artwork\\Index.cshtml",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAAFUAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-03T12:24:34.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Artist.cshtml",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Views\\Gallery\\Artist.cshtml",
               "RelativeDocumentMoniker": "ArtMuseum\\Views\\Gallery\\Artist.cshtml",
@@ -71,46 +173,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Views\\Gallery\\Details.cshtml",
               "RelativeDocumentMoniker": "ArtMuseum\\Views\\Gallery\\Details.cshtml",
               "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Views\\Gallery\\Details.cshtml",
               "RelativeToolTip": "ArtMuseum\\Views\\Gallery\\Details.cshtml",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAABwAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAIBJwBwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-02T18:55:52.549Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Views\\Gallery\\Index.cshtml",
               "RelativeDocumentMoniker": "ArtMuseum\\Views\\Gallery\\Index.cshtml",
               "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Views\\Gallery\\Index.cshtml",
               "RelativeToolTip": "ArtMuseum\\Views\\Gallery\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-02T18:42:37.661Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "GalleryController.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Controllers\\GalleryController.cs",
               "RelativeDocumentMoniker": "ArtMuseum\\Controllers\\GalleryController.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Controllers\\GalleryController.cs",
               "RelativeToolTip": "ArtMuseum\\Controllers\\GalleryController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAABEAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAIBQwBEAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-02T18:41:27.455Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "ArtMuseum\\Data\\AppDbContext.cs",
@@ -123,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "ArtworkArtStyle.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Models\\ArtworkArtStyle.cs",
               "RelativeDocumentMoniker": "ArtMuseum\\Models\\ArtworkArtStyle.cs",
@@ -136,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "ArtStyle.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Models\\ArtStyle.cs",
               "RelativeDocumentMoniker": "ArtMuseum\\Models\\ArtStyle.cs",
@@ -149,33 +251,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Artist.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Models\\Artist.cs",
               "RelativeDocumentMoniker": "ArtMuseum\\Models\\Artist.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Models\\Artist.cs",
               "RelativeToolTip": "ArtMuseum\\Models\\Artist.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAcwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-02T18:37:57.32Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Artwork.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Models\\Artwork.cs",
               "RelativeDocumentMoniker": "ArtMuseum\\Models\\Artwork.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Models\\Artwork.cs",
               "RelativeToolTip": "ArtMuseum\\Models\\Artwork.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAABoAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAiwBYAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-02T18:37:16.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Downloads\\ArtMuseummmmm\\ArtMuseum\\ArtMuseum\\Models\\BaseEntity.cs",
               "RelativeDocumentMoniker": "ArtMuseum\\Models\\BaseEntity.cs",

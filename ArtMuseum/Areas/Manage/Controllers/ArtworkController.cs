@@ -37,14 +37,6 @@ namespace ArtMuseum.Areas.Manage.Controllers
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Create(Artwork artwork, List<int> SelectedArtStyleIds)
 {
-    if (!ModelState.IsValid)
-    {
-        // Populate dropdowns again because the model is invalid
-        ViewData["Artists"] = new SelectList(_context.Artist, "Id", "Name");
-        ViewData["ArtStyles"] = await _context.ArtStyle.ToListAsync();
-        
-        return View(artwork); // This will trigger the error message block
-    }
 
     // Save the artwork
     _context.Artwork.Add(artwork);

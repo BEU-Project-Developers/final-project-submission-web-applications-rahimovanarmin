@@ -1,40 +1,190 @@
 ﻿@model IEnumerable<ArtMuseum.Models.Artwork>
 
 @{
-    ViewData["Title"] = "Artworks";
+    ViewData["Title"] = "Artwork Management";
 }
 
-<h2>Artworks</h2>
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mt-4">Artwork Management</h1>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Create New Artwork
+        </a>
+    </div>
 
-<a asp-area="Manage" asp-controller="Artwork" asp-action="Create" class="btn btn-success mb-3">+ Create Artwork</a>
+    <div class="card mb-4">
+        <div class="card-header bg-dark text-white">
+            <i class="fas fa-table me-1"></i>
+            Artwork Catalog
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered" id="artworksTable" width="100%" cellspacing="0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Artist</th>
+                            <th>Year</th>
+                            <th>Description</th>
+                            <th>Styles</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var artwork in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(artwork.ImageUrl))
+                                    {
+                                        <img src="@artwork.ImageUrl" alt="@artwork.Title"
+                                             style="width: 80px; height: 60px; object-fit: cover;"
+                                             class="img-thumbnail">
+                                    }
+                                    else
+                                    {
+                                        <div class="no-image-placeholder"
+                                             style="width: 80px; height: 60px; background: #eee;
+                                                    display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-image text-muted"></i>
+                                        </div>
+                                    }
+                                </td>
+                                <td>@artwork.Title</td>
+                                <td>
+                                    @if (artwork.Artist != null)
+                                    {
+                                        <a asp-controller="Artists" asp-action="Details" asp-route-id="@artwork.ArtistId">
+                                            @artwork.Artist.Name
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Not assigned</span>
+                                    }
+                                </td>
+                                <td>@artwork.YearCreated.ToString("yyyy")</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(artwork.Description))
+                                    {
+                                        <span class="d-inline-block text-truncate" style="max-width: 200px;">
+                                            @artwork.Description
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">No description</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (artwork.ArtworkArtStyles?.Any() == true)
+                                    {
+                                        <div class="d-flex flex-wrap gap-1">
+                                            @foreach (var style in artwork.ArtworkArtStyles.Select(aas => aas.ArtStyle))
+                                            {
+                                                <span class="badge badge-primary">@style?.Name</span>
+                                            }
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">None</span>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <a asp-action="Details" asp-route-id="@artwork.Id"
+                                           class="btn btn-sm btn-info" title="View Details">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@artwork.Id"
+                                           class="btn btn-sm btn-warning" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form asp-action="Delete" asp-route-id="@artwork.Id"
+                                              method="post" onsubmit="return confirm('Are you sure you want to delete this artwork?');">
+                                            <button type="submit" class="btn btn-sm btn-danger" title="Delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-<table class="table table-bordered table-hover">
-    <thead class="table-dark">
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Year Created</th>
-            <th>Artist</th>
-            <th>Art Styles</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var artwork in Model)
-        {
-            <tr>
-                <td>@artwork.Title</td>
-                <td>@artwork.Description</td>
-                <td>@artwork.YearCreated.Year</td>
-                <td>@artwork.Artist?.Name</td>
-                <td>
-                    @string.Join(", ", artwork.ArtworkArtStyles.Select(aas => aas.ArtStyle.Name))
-                </td>
-                <td>
-                    <a asp-area="Manage" asp-controller="Artwork" asp-action="Edit" asp-route-id="@artwork.Id" class="btn btn-sm btn-warning">Edit</a>
-                    <a asp-area="Manage" asp-controller="Artwork" asp-action="Delete" asp-route-id="@artwork.Id" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <script>
+        $(document).ready(function () {
+            $('#artworksTable').DataTable({
+                responsive: true,
+                columnDefs: [
+                    { orderable: false, targets: [0, 4, 5, 6] }, 
+                    { searchable: false, targets: [0, 6] }      
+                ],
+                language: {
+                    lengthMenu: "Show _MENU_ artworks per page",
+                    zeroRecords: "No artworks found",
+                    info: "Showing _START_ to _END_ of _TOTAL_ artworks",
+                    infoEmpty: "No artworks available",
+                    infoFiltered: "(filtered from _MAX_ total artworks)"
+                }
+            });
+        });
+    </script>
+
+
+<style>
+    .card {
+        border: none;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(33, 40, 50, 0.15);
+        border-radius: 0.35rem;
+    }
+
+    .card-header {
+        font-weight: 500;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        background-color: #343a40 !important;
+    }
+
+    .table th {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+        background-color: #343a40;
+        color: white;
+    }
+
+    .badge {
+        font-weight: 500;
+        padding: 0.35em 0.65em;
+        font-size: 0.75em;
+    }
+
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        line-height: 1.5;
+    }
+
+    .no-image-placeholder {
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+    }
+
+    .text-truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+</style>

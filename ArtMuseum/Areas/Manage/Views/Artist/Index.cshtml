@@ -1,47 +1,114 @@
 ﻿@model List<ArtMuseum.Models.Artist>
 @if (TempData["SuccessMessage"] != null)
 {
-    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 }
 @if (TempData["ErrorMessage"] != null)
 {
-    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 }
-
 
 @{
     ViewData["Title"] = "Artists Table";
 }
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>Artists</h2>
-    <a asp-action="Create" asp-controller="Artist" asp-area="Manage" class="btn btn-success">+ Create Artist</a>
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="display-6 fw-bold">Artists Management</h1>
+        <a asp-action="Create" asp-controller="Artist" asp-area="Manage" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i>Add New Artist
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Artists List</h5>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Nationality</th>
+                            <th>Birth Date</th>
+                            <th>Biography</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var artist in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(artist.PhotoUrl))
+                                    {
+                                        <img src="@artist.PhotoUrl" alt="@artist.Name" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                                    }
+                                    else
+                                    {
+                                        <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                            <i class="fas fa-user text-white"></i>
+                                        </div>
+                                    }
+                                </td>
+                                <td class="fw-bold">@artist.Name</td>
+                                <td>@artist.Nation</td>
+                                <td>@artist.BirthDate.ToString("MMMM dd, yyyy")</td>
+                                <td class="text-truncate" style="max-width: 200px;" title="@artist.Biography">
+                                    @artist.Biography
+                                </td>
+                                <td class="text-end">
+                                    <div class="btn-group" role="group">
+                                        <a asp-area="Manage" asp-controller="Artist" asp-action="Edit" asp-route-id="@artist.Id"
+                                           class="btn btn-sm btn-outline-primary" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-area="Manage" asp-controller="Artist" asp-action="Delete" asp-route-id="@artist.Id"
+                                           class="btn btn-sm btn-outline-danger" title="Delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
-<table class="table table-bordered table-hover">
-    <thead class="table-dark">
-        <tr>
-            <th>Name</th>
-            <th>Biography</th>
-            <th>Nationality</th>
-            <th>Birth Date</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var artist in Model)
-        {
-            <tr>
-                <td>@artist.Name</td>
-                <td>@artist.Biography</td>
-                <td>@artist.Nation</td>
-                <td>@artist.BirthDate.ToString("yyyy-MM-dd")</td>
-                <td>
-                    <a asp-area="Manage" asp-controller="Artist" asp-action="Edit" asp-route-id="@artist.Id" class="btn btn-sm btn-warning">Edit</a>
-                    <a asp-area="Manage" asp-controller="Artist" asp-action="Delete" asp-route-id="@artist.Id" class="btn btn-sm btn-danger">Delete</a>
 
-                </td>
-            </tr>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: rgba(0, 123, 255, 0.05);
         }
-    </tbody>
-</table>
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .card {
+            border: none;
+            border-radius: 0.5rem;
+        }
+
+        .card-header {
+            border-radius: 0.5rem 0.5rem 0 0 !important;
+        }
+
+        .text-truncate {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
