@@ -1,5 +1,74 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ArtMuseum.Models.Artwork
+@using Microsoft.AspNetCore.Mvc.Rendering
+
 @{
+    ViewData["Title"] = "Edit Artwork";
+
+    var artists = ViewData["Artists"] as SelectList;
+    var artStyles = ViewData["ArtStyles"] as List<ArtMuseum.Models.ArtStyle>;
+
+    // Prepare list of selected art style IDs for the checkboxes
+    var selectedArtStyleIds = Model.ArtworkArtStyles?.Select(a => a.ArtStyleId).ToList() ?? new List<int>();
+}
+
+<h2 class="mb-4">Edit Artwork</h2>
+
+<form asp-action="Edit" method="post" class="mt-3">
+    @Html.AntiForgeryToken()
+
+    @* Hidden field to hold Artwork Id *@
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="YearCreated" class="form-label"></label>
+        <input asp-for="YearCreated" type="date" class="form-control" />
+        <span asp-validation-for="YearCreated" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ArtistId" class="form-label">Artist</label>
+        <select asp-for="ArtistId" class="form-select" asp-items="artists">
+            <option value="">-- Select Artist --</option>
+        </select>
+        <span asp-validation-for="ArtistId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Art Styles</label>
+        <div>
+            @foreach (var style in artStyles)
+            {
+                var isChecked = selectedArtStyleIds.Contains(style.Id);
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox"
+                           name="SelectedArtStyleIds"
+                           value="@style.Id"
+                           id="artstyle_@style.Id"
+                    @(isChecked ? "checked" : "") />
+                    <label class="form-check-label" for="artstyle_@style.Id">@style.Name</label>
+                </div>
+            }
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" asp-area="Manage" class="btn btn-secondary ms-2">Cancel</a>
+</form>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }

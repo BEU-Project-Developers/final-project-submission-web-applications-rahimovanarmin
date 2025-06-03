@@ -3,9 +3,9 @@
 namespace ArtMuseum.Areas.Manage.Controllers
 {
     [Area("Manage")]
-    public class AuthorController : Controller
+    public class AuthorController : ManageBaseController
 
-    {
+	{
 
         public IActionResult Index()
         {

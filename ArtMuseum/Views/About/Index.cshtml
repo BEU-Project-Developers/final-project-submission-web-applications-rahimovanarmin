@@ -1,4 +1,6 @@
-﻿<!-- start banner Area -->
+﻿@model List<ArtMuseum.Models.Blog>
+
+<!-- start banner Area -->
 <section class="banner-area relative" id="home">
 	<div class="overlay overlay-bg"></div>
 	<div class="container">
@@ -146,87 +148,34 @@
 			<div class="menu-content pb-70 col-lg-8">
 				<div class="title text-center">
 					<h1 class="mb-10">Latest From Our Blog</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-3 col-md-6 single-blog">
+			@foreach (var blog in Model)
+			{
+						<div class="col-lg-3 col-md-6 mb-4">
+			<div class="card h-100 shadow-sm border-0 single-blog">
 				<div class="thumb">
-					<img class="img-fluid" src="img/b1.jpg" alt="">
+					<img src="@blog.Imageurl" class="card-img-top img-fluid rounded-top" alt="@blog.Title">
 				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+				<div class="card-body d-flex flex-column">
+					<a asp-controller="Blog" asp-action="Index" class="text-decoration-none text-dark mb-2">
+						<h5 class="card-title fw-bold">@blog.Title</h5>
+					</a>
+					<p class="card-text small text-muted mb-3">
+								@(blog.Content.Length > 100 ? blog.Content.Substring(0, 100) + "..." : blog.Content)
+					</p>
+					<div class="mt-auto d-flex justify-content-between text-muted small">
+						<span><i class="lnr lnr-heart"></i> 15 Likes</span>
+						<span><i class="lnr lnr-bubble"></i> 02 Comments</span>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b2.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b3.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b4.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-				</div>
-			</div>
+		</div>
+
+			}
 		</div>
 	</div>
 </section>

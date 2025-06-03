@@ -1,137 +1,115 @@
-﻿	<!-- start banner Area -->
-<section class="banner-area relative" id="home">
-	<div class="overlay overlay-bg"></div>
-	<div class="container">
-		<div class="row d-flex align-items-center justify-content-center">
-			<div class="about-content col-lg-12">
-				<h1 class="text-white">
-					Art Gallery
-				</h1>
-				<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="gallery.html"> Gallery</a></p>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- End banner Area -->
+﻿@model IEnumerable<ArtMuseum.Models.Artwork>
+
+
 <!-- Start gallery Area -->
 <section class="gallery-area section-gap gallery-page-area" id="gallery">
-	<div class="container">
-		<div class="row d-flex justify-content-center">
-			<div class="menu-content pb-70 col-lg-8">
-				<div class="title text-center">
-					<h1 class="mb-10">Our Exhibition Gallery</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
-				</div>
-			</div>
-		</div>
-		<div id="grid-container" class="row">
-			<a class="single-gallery" href="img/g1.jpg"><img class="grid-item" src="img/g1.jpg"></a>
-			<a class="single-gallery" href="img/g2.jpg"><img class="grid-item" src="img/g2.jpg"></a>
-			<a class="single-gallery" href="img/g3.jpg"><img class="grid-item" src="img/g3.jpg"></a>
-			<a class="single-gallery" href="img/g4.jpg"><img class="grid-item" src="img/g4.jpg"></a>
-			<a class="single-gallery" href="img/g5.jpg"><img class="grid-item" src="img/g5.jpg"></a>
-			<a class="single-gallery" href="img/g6.jpg"><img class="grid-item" src="img/g6.jpg"></a>
-			<a class="single-gallery" href="img/g7.jpg"><img class="grid-item" src="img/g7.jpg"></a>
-			<a class="single-gallery" href="img/g8.jpg"><img class="grid-item" src="img/g8.jpg"></a>
-			<a class="single-gallery" href="img/g9.jpg"><img class="grid-item" src="img/g9.jpg"></a>
-			<a class="single-gallery" href="img/g10.jpg"><img class="grid-item" src="img/g10.jpg"></a>
-			<a class="single-gallery" href="img/g11.jpg"><img class="grid-item" src="img/g11.jpg"></a>
-			<a class="single-gallery" href="img/g12.jpg"><img class="grid-item" src="img/g12.jpg"></a>
-			<a class="single-gallery" href="img/g4.jpg"><img class="grid-item" src="img/g4.jpg"></a>
-			<a class="single-gallery" href="img/g5.jpg"><img class="grid-item" src="img/g5.jpg"></a>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Our Exhibition Gallery</h1>
+                    <p>Browse our collection of timeless masterpieces and contemporary wonders.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var artwork in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="artwork-card">
+                        <a href="@Url.Action("Details", "Gallery", new { id = artwork.Id })" class="artwork-link">
+                            <div class="artwork-image-container">
+                                <img src="@artwork.ImageUrl" alt="@artwork.Title" class="img-fluid artwork-image">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="artwork-info">
+                                <h3 class="artwork-title">@artwork.Title</h3>
+                                <p class="artwork-year">@artwork.YearCreated</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </section>
 <!-- End gallery Area -->
-<!-- Start blog Area -->
-<section class="blog-area section-gap" id="blog">
-	<div class="container">
-		<div class="row d-flex justify-content-center">
-			<div class="menu-content pb-70 col-lg-8">
-				<div class="title text-center">
-					<h1 class="mb-10">Latest From Our Blog</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b1.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b2.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b3.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b4.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- End blog Area -->
+
+<style>
+    .artwork-card {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+
+        .artwork-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+    .artwork-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        height: 100%;
+    }
+
+    .artwork-image-container {
+        position: relative;
+        overflow: hidden;
+        height: 250px;
+    }
+
+    .artwork-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .artwork-card:hover .artwork-image {
+        transform: scale(1.05);
+    }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .artwork-card:hover .image-overlay {
+        opacity: 1;
+    }
+
+    .artwork-info {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .artwork-title {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #222;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .artwork-year {
+        color: #777;
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+
+</style>

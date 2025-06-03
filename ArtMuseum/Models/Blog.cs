@@ -1,13 +1,11 @@
 ﻿namespace ArtMuseum.Models
 {
-    public class Blog : BaseEntity
+    public class Blog
     {
-        
-        public string Title { get; set; }
+		public int Id { get; set; }
+		public string Title { get; set; }
         public string Content { get; set; }
-        
-        public int AuthorId { get; set; }
-        public Author Author { get; set; }
+		public string Imageurl { get; set; }
     }
 
 }

@@ -1,0 +1,194 @@
+﻿@model ArtMuseum.Models.Artist
+
+
+<section class="artist-details-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="artist-photo-container">
+                    @if (!string.IsNullOrEmpty(Model.PhotoUrl))
+                    {
+                        <img src="@Model.PhotoUrl" alt="@Model.Name" class="img-fluid rounded-circle">
+                    }
+                    else
+                    {
+                        <div class="no-photo-placeholder rounded-circle">
+                            <i class="lnr lnr-user"></i>
+                        </div>
+                    }
+                </div>
+                <div class="artist-quick-info mt-4">
+                    <h4>Quick Facts</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Nationality
+                            <span class="badge badge-primary badge-pill">@Model.Nation</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Born
+                            <span>@Model.BirthDate.ToString("MMMM d, yyyy")</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Artworks
+                            <span class="badge badge-primary badge-pill">@Model.Artworks.Count</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="artist-bio">
+                    <h2>About @Model.Name</h2>
+                    <p>@Model.Biography</p>
+                </div>
+
+                <div class="artist-artworks mt-5">
+                    <h3>Artworks by @Model.Name</h3>
+                    @if (Model.Artworks.Any())
+                    {
+                        <div class="row">
+                            @foreach (var artwork in Model.Artworks)
+                            {
+                                <div class="col-md-4 col-sm-6 mb-4">
+                                    <div class="artwork-thumbnail">
+                                        <a href="@Url.Action("Details", "Gallery", new { id = artwork.Id })">
+                                            <img src="@artwork.ImageUrl" alt="@artwork.Title" class="img-fluid">
+                                            <div class="artwork-info">
+                                                <h5>@artwork.Title</h5>
+                                                <p>@artwork.YearCreated</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info">
+                            No artworks available for this artist.
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End artist details Area -->
+
+<style>
+    .artist-details-area {
+        padding: 100px 0;
+    }
+
+    .artist-photo-container {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+        .artist-photo-container img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border: 10px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+    .no-photo-placeholder {
+        width: 300px;
+        height: 300px;
+        background: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        border: 10px solid #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+        .no-photo-placeholder i {
+            font-size: 100px;
+            color: #ccc;
+        }
+
+    .artist-quick-info {
+        background: #f9f9ff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+        .artist-quick-info h4 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+    .artist-bio {
+        background: #f9f9ff;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+        .artist-bio h2 {
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .artist-bio p {
+            line-height: 1.8;
+            color: #777;
+        }
+
+    .artist-artworks {
+        margin-top: 50px;
+    }
+
+        .artist-artworks h3 {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+    .artwork-thumbnail {
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+        .artwork-thumbnail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .artwork-thumbnail img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .artwork-thumbnail:hover img {
+            transform: scale(1.05);
+        }
+
+    .artwork-info {
+        padding: 15px;
+        background: #fff;
+    }
+
+        .artwork-info h5 {
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #222;
+        }
+
+        .artwork-info p {
+            margin: 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+</style>

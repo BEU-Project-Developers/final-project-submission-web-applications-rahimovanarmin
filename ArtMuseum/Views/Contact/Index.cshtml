@@ -1,85 +1,111 @@
-﻿
-			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">	
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row d-flex align-items-center justify-content-center">
-						<div class="about-content col-lg-12">
-							<h1 class="text-white">
-								Contact Us
-							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="contact.html"> Contact Us</a></p>
-						</div>											
-					</div>
-				</div>
-			</section>
-			<!-- End banner Area -->	
+﻿@model ArtMuseum.Models.Contact
 
-			<!-- Start contact-page Area -->
-			<section class="contact-page-area section-gap">
-				<div class="container">
-					<div class="row">
-						<div class="map-wrap" style="width:100%; height: 445px;" id="map"></div>
-						<div class="col-lg-4 d-flex flex-column address-wrap">
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-home"></span>
-								</div>
-								<div class="contact-details">
-									<h5>Dhaka, Bangladesh</h5>
-									<p>56/8, West Panthapath</p>
-								</div>
-							</div>
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-phone-handset"></span>
-								</div>
-								<div class="contact-details">
-									<h5>00 (880) 9865 562</h5>
-									<p>Mon to Fri 9am to 6 pm</p>
-								</div>
-							</div>
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-envelope"></span>
-								</div>
-								<div class="contact-details">
-									<h5>support@codethemes.com</h5>
-									<p>Send us your query anytime!</p>
-								</div>
-							</div>														
-						</div>
-						<div class="col-lg-8">
-							<form class="form-area " id="myForm" action="mail.php" method="post" class="contact-form text-right">
-								<div class="row">	
-									<div class="col-lg-6 form-group">
-										<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+@{
+    string phoneNumber = ViewBag.Contact_PhoneNumber as string ?? Model?.PhoneNumber ?? "";
+    string address = ViewBag.Contact_Address as string ?? Model?.Address ?? "";
+    var userName = ViewBag.UserName as string;
+}
 
-							@{
-								var emailPattern = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{1,63}$";
-							}
-							<input name="email"
-								   placeholder="Enter email address"
-								   pattern="@emailPattern"
-								   onfocus="this.placeholder = ''"
-								   onblur="this.placeholder = 'Enter email address'"
-								   class="common-input mb-20 form-control"
-								   required
-								   type="email" />
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Contact Us
+                </h1>
+                <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="gallery.html"> Contact</a></p>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Contact Area Start -->
+<section class="contact-form-main py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-10">
 
-										<input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
-										<div class="mt-20 alert-msg" style="text-align: left;"></div>
-									</div>
-									<div class="col-lg-6 form-group">
-										<textarea class="common-textarea form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-										<button class="primary-btn mt-20 text-white" style="float: right;">Send Message</button>
-																				
-									</div>
-								</div>
-							</form>	
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End contact-page Area -->
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-5">
+                        <div class="mb-4 text-center">
+                            <span class="text-muted text-uppercase fw-semibold small">Contact Form</span>
+                            <h2 class="mt-2 fw-bold">Feel Free to Contact Us!</h2>
+                        </div>
+
+                        @if (TempData["SuccessMessage"] != null)
+                        {
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                @TempData["SuccessMessage"]
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                        }
+                        @if (TempData["ErrorMessage"] != null)
+                        {
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                @TempData["ErrorMessage"]
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                        }
+
+                        <form id="contact-form" asp-action="Submit" method="post" novalidate>
+                            @Html.AntiForgeryToken()
+
+                            <div class="mb-4">
+                                <label for="phoneNumber" class="form-label fw-semibold">Phone Number</label>
+                                <input type="text" id="phoneNumber" name="PhoneNumber" class="form-control form-control-lg"
+                                       placeholder="Enter your phone number" required value="@phoneNumber" />
+                                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="address" class="form-label fw-semibold">Address</label>
+                                <textarea id="address" name="Address" class="form-control form-control-lg" rows="4" maxlength="200" placeholder="Enter your address" required>@address</textarea>
+                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger small mt-1 d-block" })
+                            </div>
+
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-lg fw-semibold" type="submit">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+
+                        
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var form = document.getElementById("contact-form");
+
+    @if (string.IsNullOrEmpty(userName))
+    {
+        <text>
+                if (form) {
+                    form.addEventListener("submit", function (e) {
+                        e.preventDefault();
+                        Swal.fire({
+                            title: "Login Required",
+                            text: "You must be logged in to submit your contact details.",
+                            icon: "warning",
+                            showCancelButton: true,
+                            cancelButtonText: "Cancel"
+                        })
+                    });
+                }
+        </text>
+    }
+    });
+</script>
+
+<!-- Add SweetAlert2 (for nice popups) -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Contact Area End -->

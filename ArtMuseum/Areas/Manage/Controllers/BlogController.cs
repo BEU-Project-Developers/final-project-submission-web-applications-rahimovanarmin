@@ -3,8 +3,8 @@
 namespace ArtMuseum.Areas.Manage.Controllers
 {
     [Area("Manage")]
-    public class BlogController : Controller
-    {
+    public class BlogController : ManageBaseController
+	{
         public IActionResult Index()
         {
             return View();

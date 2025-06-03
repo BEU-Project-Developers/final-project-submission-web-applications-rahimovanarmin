@@ -1,3 +1,8 @@
+using ArtMuseum.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace ArtMuseum
 {
     public class Program
@@ -6,21 +11,34 @@ namespace ArtMuseum
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+			builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+			builder.Services.AddSession();
+			builder.Services.AddHttpContextAccessor();
+
+
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-          //  if (!app.Environment.IsDevelopment())
-            //{
-              //  app.UseExceptionHandler("/Home/Error");
-            //}
-            app.UseStaticFiles();
+			// Configure the HTTP request pipeline.
+			//  if (!app.Environment.IsDevelopment())
+			//{
+			//  app.UseExceptionHandler("/Home/Error");
+			//}
+
+			app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+			app.UseSession();
+
+			app.UseAuthorization();
 
             app.MapControllerRoute(
             name: "areas",

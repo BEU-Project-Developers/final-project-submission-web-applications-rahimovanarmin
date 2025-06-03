@@ -1,58 +1,47 @@
-﻿
+﻿@model List<ArtMuseum.Models.Artist>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Artists Table</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body class="p-4">
 
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Artists</h2>
-        <a href="#" class="btn btn-success">+ Create Artist</a>
-    </div>
+@{
+    ViewData["Title"] = "Artists Table";
+}
 
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Artists</h2>
+    <a asp-action="Create" asp-controller="Artist" asp-area="Manage" class="btn btn-success">+ Create Artist</a>
+</div>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Biography</th>
+            <th>Nationality</th>
+            <th>Birth Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var artist in Model)
+        {
             <tr>
-                <th>Name</th>
-                <th>Biography</th>
-                <th>Nationality</th>
-                <th>Birth Date</th>
-                <th>Artworks</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @* Static artist data *@
-            @foreach (var artist in new[]
-            {
-            new { Name = "Vincent van Gogh", Biography = "Dutch post-impressionist painter", Nationality = "Dutch", BirthDate = new DateTime(1853, 3, 30), Artworks = new[] { "Starry Night", "Sunflowers" } },
-            new { Name = "Pablo Picasso", Biography = "Spanish painter and sculptor", Nationality = "Spanish", BirthDate = new DateTime(1881, 10, 25), Artworks = new[] { "Guernica", "Les Demoiselles d'Avignon" } },
-            new { Name = "Salvador Dalí", Biography = "Spanish surrealist painter", Nationality = "Spanish", BirthDate = new DateTime(1904, 5, 11), Artworks = new[] { "The Persistence of Memory", "The Elephants" } }
-            })
-            {
-                <tr>
-                    <td>@artist.Name</td>
-                    <td>@artist.Biography</td>
-                    <td>@artist.Nationality</td>
-                    <td>@artist.BirthDate.ToString("yyyy-MM-dd")</td>
-                    <td>
-                        @foreach (var artwork in artist.Artworks)
-                        {
-                            <div>@artwork</div>
-                        }
-                    </td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-warning">Edit</a>
-                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                <td>@artist.Name</td>
+                <td>@artist.Biography</td>
+                <td>@artist.Nation</td>
+                <td>@artist.BirthDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-area="Manage" asp-controller="Artist" asp-action="Edit" asp-route-id="@artist.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-area="Manage" asp-controller="Artist" asp-action="Delete" asp-route-id="@artist.Id" class="btn btn-sm btn-danger">Delete</a>
 
-</body>
-</html>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

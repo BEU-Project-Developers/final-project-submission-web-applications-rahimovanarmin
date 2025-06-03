@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ArtMuseum.Models.Contact>
+
+<h1>Contacts</h1>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Create New Contact</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contact in Model)
+        {
+                <tr>
+                        <td>@contact.User?.FullName</td>
+                    <td>@contact.PhoneNumber</td>
+                    <td>@contact.Address</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@contact.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@contact.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@contact.Id">Delete</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

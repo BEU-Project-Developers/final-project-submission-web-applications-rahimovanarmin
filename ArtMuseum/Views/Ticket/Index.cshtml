@@ -1,11 +1,17 @@
-﻿	<!-- start banner Area -->
+﻿@model List<ArtMuseum.Models.Blog>
+
+@{
+	var exhibitions = ViewBag.Exhibitions as List<ArtMuseum.Models.Exhibition> ?? new List<ArtMuseum.Models.Exhibition>();
+}
+
+	<!-- start banner Area -->
 <section class="banner-area relative" id="home">
 	<div class="overlay overlay-bg"></div>
 	<div class="container">
 		<div class="row d-flex align-items-center justify-content-center">
 			<div class="about-content col-lg-12">
 				<h1 class="text-white">
-					Buy Tickets
+					Exhibitions
 				</h1>
 				<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="ticket.html"> Tickets</a></p>
 			</div>
@@ -14,10 +20,10 @@
 </section>
 <!-- End banner Area -->
 <!-- Start upcoming-exibition Area -->
-<section class="upcoming-exibition-area section-gap">
+<section class="exibition-area section-gap" id="exhibitions">
 	<div class="container">
 		<div class="row d-flex justify-content-center">
-			<div class="menu-content pb-70 col-lg-8">
+			<div class="menu-content pb-60 col-lg-10">
 				<div class="title text-center">
 					<h1 class="mb-10">Ongoing Exhibitions from the scratch</h1>
 					<p>Who are in extremely love with eco friendly system.</p>
@@ -25,83 +31,24 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-4 col-md-6 single-exhibition">
-				<div class="thumb">
-					<img class="img-fluid" src="img/pages/ex1.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-				<p>
-					Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-				</p>
-				<div class="meta-bottom d-flex justify-content-start">
-					<p class="price">$45.00</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 single-exhibition">
-				<div class="thumb">
-					<img class="img-fluid" src="img/pages/ex2.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-				<p>
-					Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-				</p>
-				<div class="meta-bottom d-flex justify-content-start">
-					<p class="price">$45.00</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 single-exhibition">
-				<div class="thumb">
-					<img class="img-fluid" src="img/pages/ex3.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-				<p>
-					Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-				</p>
-				<div class="meta-bottom d-flex justify-content-start">
-					<p class="price">$45.00</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 single-exhibition">
-				<div class="thumb">
-					<img class="img-fluid" src="img/pages/ex4.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-				<p>
-					Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-				</p>
-				<div class="meta-bottom d-flex justify-content-start">
-					<p class="price">$45.00</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 single-exhibition">
-				<div class="thumb">
-					<img class="img-fluid" src="img/pages/ex5.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-				<p>
-					Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-				</p>
-				<div class="meta-bottom d-flex justify-content-start">
-					<p class="price">$45.00</p>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 single-exhibition">
-				<div class="thumb">
-					<img class="img-fluid" src="img/pages/ex6.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-				<p>
-					Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-				</p>
-				<div class="meta-bottom d-flex justify-content-start">
-					<p class="price">$45.00</p>
-				</div>
+			<div class="active-exibition-carusel">
+				@foreach (var exhibition in exhibitions)
+				{
+							<div class="single-exibition item">
+								<img class="img-fluid" style="height:200px" src="@(!string.IsNullOrEmpty(exhibition.ImageUrl) ? exhibition.ImageUrl : "/img/default-exhibition.jpg")" alt="@exhibition.Name" />
+								<ul class="tags">
+									<li>>Curator: @exhibition.Curator</li>
+									<li>Location: @exhibition.Location</li>
+								</ul>
+									<a asp-controller="Exhibitions" asp-action="Index" class="text-uppercase primary-btn"><h4>@exhibition.Name</h4></a>
+								<p>@exhibition.Descriptions</p>
+								<h6 class="date">@exhibition.StartDate.ToString("dd MMMM, yyyy") - @exhibition.EndDate.ToString("dd MMMM, yyyy")</h6>
+						@if (exhibition.TicketPrice.HasValue)
+						{
+											<p><strong>Ticket Price: </strong>$@exhibition.TicketPrice.Value.ToString("0.00")</p>
+						}
+							</div>
+				}
 			</div>
 		</div>
 	</div>
@@ -114,87 +61,34 @@
 			<div class="menu-content pb-70 col-lg-8">
 				<div class="title text-center">
 					<h1 class="mb-10">Latest From Our Blog</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-3 col-md-6 single-blog">
+			@foreach (var blog in Model)
+			{
+						<div class="col-lg-3 col-md-6 mb-4">
+			<div class="card h-100 shadow-sm border-0 single-blog">
 				<div class="thumb">
-					<img class="img-fluid" src="img/b1.jpg" alt="">
+					<img src="@blog.Imageurl" class="card-img-top img-fluid rounded-top" alt="@blog.Title">
 				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
+				<div class="card-body d-flex flex-column">
+					<a asp-controller="Blog" asp-action="Index" class="text-decoration-none text-dark mb-2">
+						<h5 class="card-title fw-bold">@blog.Title</h5>
+					</a>
+					<p class="card-text small text-muted mb-3">
+								@(blog.Content.Length > 100 ? blog.Content.Substring(0, 100) + "..." : blog.Content)
+					</p>
+					<div class="mt-auto d-flex justify-content-between text-muted small">
+						<span><i class="lnr lnr-heart"></i> 15 Likes</span>
+						<span><i class="lnr lnr-bubble"></i> 02 Comments</span>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b2.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b3.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 single-blog">
-				<div class="thumb">
-					<img class="img-fluid" src="img/b4.jpg" alt="">
-				</div>
-				<p class="date">10 Jan 2018</p>
-				<a href="#">
-					<h4>
-						Addiction When Gambling
-						Becomes A Problem
-					</h4>
-				</a>
-				<p>
-					inappropriate behavior ipsum dolor sit amet, consectetur.
-				</p>
-				<div class="meta-bottom d-flex justify-content-between">
-					<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-					<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-				</div>
-			</div>
+		</div>
+
+			}
 		</div>
 	</div>
 </section>

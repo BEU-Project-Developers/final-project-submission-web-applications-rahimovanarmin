@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ArtMuseum.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+
+<a asp-action="Create" class="btn btn-primary">Create New User</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>FullName</th>
+            <th>Email</th>
+            <th>Role</th> <!-- Added Role column -->
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+                <tr>
+                        <td>@user.FullName</td>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td> <!-- Display Role -->
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@user.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@user.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

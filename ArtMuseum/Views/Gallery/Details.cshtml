@@ -1,0 +1,241 @@
+﻿@using ArtMuseum.Models
+@model ArtMuseum.Models.Artwork
+
+<!-- Start artwork details Area -->
+<section class="artwork-details-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="artwork-image-container">
+                    <img id="artworkImage" src="@Model.ImageUrl" alt="@Model.Title" class="img-fluid">
+                </div>
+                <div class="image-actions mt-3">
+                    <button onclick="zoomImage(1.2)" class="btn btn-primary">Zoom In</button>
+                    <button onclick="zoomImage(0.8)" class="btn btn-primary">Zoom Out</button>
+                    <button onclick="shareArtwork()" class="btn btn-secondary">Share</button>
+                    <button onclick="addToFavorites('@Model.Id')" class="btn btn-danger">Add to Favorites</button>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="artwork-details-content">
+                    <h2>@Model.Title</h2>
+
+                    <div class="artist-info">
+                        <h4>
+                            Artist: <a href="@Url.Action("Artist", "Gallery", new { id =Model.Artist.Id })">@Model.Artist.Name</a>
+                        </h4>
+                    </div>
+
+                    <div class="meta-info mb-4">
+                        <p><strong>Year:</strong> @Model.YearCreated</p>
+                      
+                    </div>
+
+                    <div class="tags mb-4">
+                        <h4>Tags:</h4>
+                        @foreach (var tag in Model.ArtworkArtStyles)
+                        {
+                            <span class="badge badge-primary">@tag.ArtStyle.Name</span>
+                        }
+                    </div>
+
+                    <div class="description">
+                        <h4>Description:</h4>
+                        <p>@Model.Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    @*     <!-- Related Artworks Section --> *@
+    @*     @if (Model.RelatedArtworks != null && Model.RelatedArtworks.Any()) *@
+    @*     { *@
+    @*         <div class="row mt-5"> *@
+    @*             <div class="col-12"> *@
+    @*                 <h3 class="mb-4">Related Artworks</h3> *@
+    @*                 <div class="row"> *@
+    @*                     @foreach (var related in Model.RelatedArtworks) *@
+    @*                     { *@
+    @*                         <div class="col-md-3 col-sm-6"> *@
+    @*                             <div class="related-artwork-item"> *@
+    @*                                 <a href="/Artwork/Details/@related.Id"> *@
+    @*                                     <img src="@related.ImageUrl" alt="@related.Title" class="img-fluid related-img"> *@
+    @*                                     <p class="mt-2 text-center">@related.Title</p> *@
+    @*                                 </a> *@
+    @*                             </div> *@
+    @*                         </div> *@
+    @*                     } *@
+    @*                 </div> *@
+    @*             </div> *@
+    @*         </div> *@
+    @*     } *@
+    @* </div> *@
+</section>
+<!-- End artwork details Area -->
+
+    <script>
+        let currentZoom = 1;
+
+        function zoomImage(factor) {
+            const image = document.getElementById('artworkImage');
+            currentZoom *= factor;
+            image.style.transform = `scale(${currentZoom})`;
+            image.style.transformOrigin = 'center center';
+        }
+
+        function shareArtwork() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '@Model.Title',
+                    text: 'Check out this artwork: @Model.Title by @Model.Artist.Name',
+                    url: window.location.href
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                prompt('Copy this link to share:', window.location.href);
+            }
+        }
+
+        function addToFavorites(artworkId) {
+            fetch('/api/Favorites/Add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ artworkId: artworkId })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                alert('Added to favorites!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to add to favorites. Please try again.');
+            });
+        }
+    </script>
+
+
+<style>
+    .artwork-details-area {
+        padding: 100px 0;
+    }
+
+    .artwork-image-container {
+        border: 15px solid #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+        background-color: #f8f9fa;
+        text-align: center;
+    }
+
+        .artwork-image-container img {
+            transition: transform 0.3s ease;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+    .artwork-details-content {
+        padding: 30px;
+        background: #f9f9ff;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+        .artwork-details-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #222;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .artwork-details-content h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+    .artist-info h4 a {
+        color: #f42f2c;
+        text-decoration: none;
+    }
+
+        .artist-info h4 a:hover {
+            text-decoration: underline;
+        }
+
+    .meta-info p {
+        margin-bottom: 8px;
+        color: #555;
+    }
+
+    .meta-info strong {
+        color: #333;
+        font-weight: 600;
+    }
+
+    .tags .badge {
+        margin-right: 5px;
+        margin-bottom: 5px;
+        padding: 8px 12px;
+        font-size: 14px;
+        background: #f42f2c;
+    }
+
+    .description p {
+        line-height: 1.8;
+        color: #777;
+    }
+
+    .image-actions {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+
+        .image-actions .btn {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+
+    .related-artwork-item {
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+    }
+
+        .related-artwork-item:hover {
+            transform: translateY(-5px);
+        }
+
+    .related-img {
+        border: 5px solid #fff;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+        .related-img:hover {
+            transform: scale(1.05);
+        }
+
+    .related-artwork-item p {
+        margin-top: 10px;
+        font-weight: 500;
+        color: #333;
+        text-align: center;
+    }
+
+</style>

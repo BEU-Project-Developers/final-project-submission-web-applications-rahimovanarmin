@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+	var fullName = Context.Session.GetString("FullName");
+}
+
+<!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
 	<!-- Mobile Specific Meta -->
@@ -39,31 +45,41 @@
 				<div id="logo">
 					<a href="index.html"><img src="~/img/logo.png" alt="" title="" /></a>
 				</div>
-				<nav id="nav-menu-container">
-    <ul class="nav-menu">
-        <li class="menu-active">
-            <a asp-controller="Home" asp-action="index">Home</a>
-        </li>
-        <li>
-            <a asp-controller="About" asp-action="index">About</a>
-        </li>
-        <li>
-            <a asp-controller="Gallery" asp-action="index">Gallery</a>
-        </li>
-        <li>
-            <a asp-controller="Event" asp-action="index">Events</a>
-        </li>
-        <li>
-            <a asp-controller="Ticket" asp-action="index">Ticket</a>
-        </li>
-        <li>
-            <a asp-controller="Blog" asp-action="index">Blog</a>
-        </li>
-        <li>
-            <a asp-controller="Contact" asp-action="index">Contact</a>
-        </li>
-    </ul>
+				<nav id="nav-menu-container" class="d-flex justify-content-between align-items-center flex-wrap px-3">
+	<ul class="nav-menu d-flex align-items-center mb-0">
+		<li class="menu-active"><a asp-controller="Home" asp-action="index">Home</a></li>
+		<li><a asp-controller="About" asp-action="index">About</a></li>
+		<li><a asp-controller="Gallery" asp-action="index">Gallery</a></li>
+		<li><a asp-controller="Ticket" asp-action="index">Ticket</a></li>
+		<li><a asp-controller="Blog" asp-action="index">Blog</a></li>
+		<li><a asp-controller="Contact" asp-action="index">Contact</a></li>
+	</ul>
+
+	<div class="auth-section d-flex align-items-center pl-5">
+						@if (!string.IsNullOrEmpty(fullName))
+						{
+			<ul class="nav">
+				<li class="nav-item">
+					<a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary" onclick="confirmlogout(event)">Logout</a>
+
+					<form id="logoutForm" asp-controller="Account" asp-action="Logout" method="post" style="display:none;">
+										@Html.AntiForgeryToken()
+					</form>
+				</li>
+			</ul>
+						}
+						else
+						{
+			<a asp-controller="Account" asp-action="Login" class="btn btn-outline-primary me-2">
+				<i class="fas fa-sign-in-alt me-1"></i> Login
+			</a>
+			<a asp-controller="Account" asp-action="Register" class="btn btn-outline-success ml-4">Register
+			</a>
+						}
+</div>
+
 </nav>
+
 <!-- #nav-menu-container -->
 			</div>
 		</div>
@@ -115,6 +131,15 @@
 		</div>
 	</footer>
 	<!-- End footer Area -->
+	<script>
+	function confirmlogout(event) {
+		event.preventDefault();
+		if (confirm("Are you sure you want to logout?")) {
+			document.getElementById("logoutForm").submit();
+		}
+	}
+	</script>
+
 
 	<script src="~/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

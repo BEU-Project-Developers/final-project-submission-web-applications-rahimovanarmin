@@ -1,0 +1,16 @@
+﻿@model ArtMuseum.Models.User
+
+<h1>Delete User</h1>
+
+<p>Are you sure you want to delete this user?</p>
+
+<table class="table">
+    <tr><th>Username</th><td>@Model.FullName</td></tr>
+    <tr><th>Email</th><td>@Model.Email</td></tr>
+</table>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
